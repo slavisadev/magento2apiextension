@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="CerseiLabs\APIextension\Api\CustomerRepositoryInterface" type="CerseiLabs\APIextension\Model\Api\CustomerRepository" />
+    <preference for="CerseiLabs\APIextension\Api\CerseiLabsItemInterface" type="CerseiLabs\APIextension\Model\Api\CerseiLabsItem" />
+    <preference for="CerseiLabs\APIextension\Api\ProductRepositoryInterface" type="CerseiLabs\APIextension\Model\Api\ProductRepository" />
+
+    <!-- Webhooks -->
+    <preference for="CerseiLabs\APIextension\Api\WebhookRepositoryInterface" type="CerseiLabs\APIextension\Model\WebhookRepository"/>
+    <preference for="CerseiLabs\APIextension\Api\Data\WebhookInterface" type="CerseiLabs\APIextension\Model\Webhook"/>
+    <preference for="CerseiLabs\APIextension\Api\Data\WebhookSearchResultInterface" type="CerseiLabs\APIextension\Model\WebhookSearchResult"/>
+
+    <!-- Reindexer -->
+    <preference for="CerseiLabs\APIextension\Api\ReindexRepositoryInterface" type="CerseiLabs\APIextension\Model\ReindexRepository"/>
+</config>

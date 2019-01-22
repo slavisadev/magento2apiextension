@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="catalog_product_save_after">
+		<observer name="productEditAction" instance="CerseiLabs\APIextension\Observer\WebhookEventsProduct" />
+	</event>
+	<event name="customer_save_after_data_object">
+		<observer name="customerEditAction" instance="CerseiLabs\APIextension\Observer\WebhookEventsCustomer" />
+	</event>
+	<event name="order_cancel_after">
+		<observer name="orderCancelAction" instance="CerseiLabs\APIextension\Observer\WebhookEventsOrderCancel" />
+	</event>
+	<event name="sales_order_place_after">
+		<observer name="orderPlacementAction" instance="CerseiLabs\APIextension\Observer\WebhookEventsOrderPlace" />
+	</event>
+	<event name="catalog_category_prepare_save">
+		<observer name="categoryEditAction" instance="CerseiLabs\APIextension\Observer\WebhookEventsCategory" />
+	</event>
+	<!-- events -->
+</config>

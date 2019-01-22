@@ -1,0 +1,60 @@
+<?php
+
+namespace CerseiLabs\APIextension\Observer;
+
+use Magento\Framework\Event\Observer;
+use Magento\Framework\Event\ObserverInterface;
+use Magento\Store\Model\StoreManagerInterface;
+use CerseiLabs\APIextension\Helper\Data as CerseiLabsHelper;
+use CerseiLabs\APIextension\Model\ResourceModel\Webhook\Collection as WebhooksCollection;
+
+class WebhookEventsProduct implements ObserverInterface
+{
+    /**
+     * @var WebhooksCollection
+     */
+    protected $_collectionFactory;
+
+    /**
+     * @var StoreManagerInterface
+     */
+    protected $_storeManager;
+
+    /**
+     * @var string
+     */
+    protected $eventCode;
+
+    /**
+     * @var CerseiLabsHelper
+     */
+    protected $helper;
+
+    /**
+     * WebhookEventsProduct constructor.
+     * @param WebhooksCollection $collectionFactory
+     * @param CerseiLabsHelper $helper
+     * @param StoreManagerInterface $_storeManager
+     */
+    public function __construct(
+        WebhooksCollection $collectionFactory,
+        CerseiLabsHelper $helper,
+        StoreManagerInterface $_storeManager
+    )
+    {
+        $this->_collectionFactory = $collectionFactory;
+        $this->eventCode = 'catalog_product_save_after';
+        $this->helper = $helper;
+        $this->_storeManager = $_storeManager;
+    }
+
+    /**
+     * @param Observer $observer
+     */
+    public function execute(Observer $observer)
+    {
+        $baseUrl = $this->_storeManager->getStore()->getBaseUrl();
+        $subEntities = array();
+        $this->helper->runWebHook($baseUrl, $this->_collectionFactory, $this->eventCode, 'product', $observer, $subEntities);
+    }
+}

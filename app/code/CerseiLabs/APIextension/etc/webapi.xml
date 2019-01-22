@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+    <!--<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Webapi/etc/webapi.xsd">-->
+    <route url="/V1/cerseiLabs/categories" method="GET">
+        <service class="CerseiLabs\APIextension\Api\CerseiLabsItemInterface" method="getCategories"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+    <route url="/V1/cerseiLabs/categorypaths/:ids" method="GET">
+        <service class="CerseiLabs\APIextension\Api\ProductRepositoryInterface" method="getCategoryPaths"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+    <route url="/V1/cerseiLabs/categorypaths" method="POST">
+        <service class="CerseiLabs\APIextension\Api\ProductRepositoryInterface" method="setCategoryPaths"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+    <route url="/V1/cerseiLabs/products" method="GET">
+        <service class="CerseiLabs\APIextension\Api\ProductRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+    <route url="/V1/order/statuses/:orderId" method="GET">
+        <service class="CerseiLabs\APIextension\Api\CerseiLabsItemInterface" method="getOrderStatuses"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+    <route url="/V1/product/attribute/options" method="GET">
+        <service class="CerseiLabs\APIextension\Api\CerseiLabsItemInterface" method="getAllOptions"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+    <!-- webhooks routes -->
+
+    <route method="GET" url="/V1/cerseiLabs/webhooks/:id">
+        <service class="CerseiLabs\APIextension\Api\WebhookRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/cerseiLabs/webhooks">
+        <service class="CerseiLabs\APIextension\Api\WebhookRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/cerseiLabs/webhooks">
+        <service class="CerseiLabs\APIextension\Api\WebhookRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+    <route method="PUT" url="/V1/cerseiLabs/webhooks">
+        <service class="CerseiLabs\APIextension\Api\WebhookRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+    <route method="DELETE" url="/V1/cerseiLabs/webhooks/:id">
+        <service class="CerseiLabs\APIextension\Api\WebhookRepositoryInterface" method="delete"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+    <!-- customers routes -->
+
+    <route method="POST" url="/V1/cerseiLabs/customers">
+        <service class="CerseiLabs\APIextension\Api\CustomerRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+    <route method="PUT" url="/V1/cerseiLabs/customers">
+        <service class="CerseiLabs\APIextension\Api\CustomerRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/cerseiLabs/customer/attributes">
+        <service class="CerseiLabs\APIextension\Api\CustomerRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+    <!-- reindex route -->
+
+    <route method="GET" url="/V1/cerseiLabs/reindex">
+        <service class="CerseiLabs\APIextension\Api\ReindexRepositoryInterface" method="execute"/>
+        <resources>
+            <resource ref="Magento_Catalog::products"/>
+        </resources>
+    </route>
+
+</routes>

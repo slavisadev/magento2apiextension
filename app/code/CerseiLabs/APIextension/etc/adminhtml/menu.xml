@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 CerseiLabs. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="CerseiLabs_APIextension::cerseiLabs_cerseiLabswebhooks_index" title="CerseiLabs" module="CerseiLabs_APIextension"  sortOrder="20" dependsOnModule="CerseiLabs_APIextension" action="apiextension/cerseiLabswebhooks/index" resource="CerseiLabs_APIextension::cerseiLabs_cerseiLabswebhooks_index"/>
+<!--AddMenu-->
+    </menu>
+</config>

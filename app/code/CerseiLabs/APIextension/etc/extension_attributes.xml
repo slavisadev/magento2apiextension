@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="stock_item" type="Magento\CatalogInventory\Api\Data\StockItemInterface">
+            <join reference_table="cataloginventory_stock_item" reference_field="product_id" join_on_field="entity_id">
+                <field>qty</field>
+            </join>
+        </attribute>
+    </extension_attributes>
+</config>
